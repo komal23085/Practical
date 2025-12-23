@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Control Flow</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 30px; line-height: 1.6; background-color: #f9f9f9; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #2980b9; margin-top: 25px; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #3498db; color: white; }
+        .highlight { font-weight: bold; color: #e74c3c; }
+        code { background: #f0f0f0; padding: 3px 6px; border-radius: 4px; font-family: monospace; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>JavaScript Control Flow</h1>
+    
+    <p>Control flow is the order in which the computer executes statements in a script.</p>
+
+    <h2>1. Conditional Statements</h2>
+    <ul>
+        <li><code>if...else</code>: Executes a block of code if a condition is true.</li>
+        <li><code>switch</code>: Selects one of many code blocks to be executed based on a variable's value.</li>
+    </ul>
+
+    <h2>2. Loop Comparison</h2>
+    <p>Loops are used to run the same code over and over again, each time with a different value.</p>
+
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Loop Type</th>
+                <th>Best Used When...</th>
+                <th>Condition Check</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>for</strong></td>
+                <td>You know exactly how many times you want to loop (e.g., through an array).</td>
+                <td>Before each iteration.</td>
+            </tr>
+            <tr>
+                <td><strong>while</strong></td>
+                <td>You don't know the count, but you have a condition that must be true to start.</td>
+                <td>Before each iteration.</td>
+            </tr>
+            <tr>
+                <td><strong>do...while</strong></td>
+                <td>The code <strong>must</strong> run at least once, regardless of the condition.</td>
+                <td><span class="highlight">After</span> each iteration.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    // --- DEMONSTRATION OF LOOPS ---
+
+    // 1. FOR LOOP (Fixed Iteration)
+    console.log("--- For Loop ---");
+    for (let i = 0; i < 3; i++) {
+        console.log("For loop count: " + i);
+    }
+
+    // 2. WHILE LOOP (Condition-based)
+    console.log("--- While Loop ---");
+    let count = 0;
+    while (count < 3) {
+        console.log("While loop count: " + count);
+        count++;
+    }
+
+    // 3. DO...WHILE LOOP (Guaranteed execution once)
+    console.log("--- Do...While Loop ---");
+    let x = 10;
+    do {
+        console.log("This prints once even though 10 is not less than 5.");
+    } while (x < 5);
+</script>
+
+</body>
+</html>

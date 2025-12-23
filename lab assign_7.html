@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Variables: Var, Let, Const</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; color: #333; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        code { background: #eee; padding: 2px 4px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <h1>Var, Let, and Const Comparison</h1>
+
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>var</th>
+            <th>let</th>
+            <th>const</th>
+        </tr>
+        <tr>
+            <td><strong>Scope</strong></td>
+            <td>Function Scope</td>
+            <td>Block Scope <code>{ }</code></td>
+            <td>Block Scope <code>{ }</code></td>
+        </tr>
+        <tr>
+            <td><strong>Hoisting</strong></td>
+            <td>Hoisted (initialized as <code>undefined</code>)</td>
+            <td>Hoisted (Temporal Dead Zone)</td>
+            <td>Hoisted (Temporal Dead Zone)</td>
+        </tr>
+        <tr>
+            <td><strong>Reassignment</strong></td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    <script>
+        // --- 1. HOISTING DEMONSTRATION ---
+        console.log("--- Hoisting ---");
+        
+        console.log("varValue:", varValue); // Returns undefined (hoisted)
+        var varValue = "I am var";
+
+        try {
+            console.log(letValue); // ReferenceError (TDZ)
+        } catch (e) {
+            console.log("letValue: Cannot access before initialization");
+        }
+
+        // --- 2. SCOPE DEMONSTRATION ---
+        console.log("--- Scope ---");
+
+        if (true) {
+            var globalVar = "Visible everywhere";
+            let blockLet = "Visible only in this block";
+            const blockConst = "Visible only in this block";
+        }
+
+        console.log(globalVar); // Works
+        try {
+            console.log(blockLet); 
+        } catch (e) {
+            console.log("blockLet: Not defined outside block");
+        }
+    </script>
+</body>
+</html>

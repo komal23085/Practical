@@ -1,0 +1,16 @@
+/*Heading style */ 
+h1{
+    color:brown;
+    text-align:center;
+    font-family:Arial,Arial, Helvetica, sans-serif;
+} 
+/*paragraph style*/
+p{
+    font-size:larger;
+    color:blue;
+    line-height:2.4px;
+}
+a{
+        color:chocolate;
+        text-decoration:solid;
+    }

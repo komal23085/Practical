@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Advanced Concepts</title>
+    <style>
+        :root { --primary: #2563eb; --secondary: #7c3aed; --bg: #f8fafc; --text: #1e293b; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 30px; }
+        h1, h2 { color: var(--primary); border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+        code { background: #fee2e2; color: #991b1b; padding: 2px 4px; border-radius: 4px; font-family: monospace; }
+        pre { background: #1e293b; color: #f8fafc; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        
+        /* Event Delegation Styles */
+        .list-container { background: #f1f5f9; padding: 20px; border-radius: 8px; margin-top: 15px; }
+        #parent-list { list-style: none; padding: 0; }
+        #parent-list li { background: white; margin: 5px 0; padding: 10px; border: 1px solid #cbd5e1; cursor: pointer; transition: 0.2s; }
+        #parent-list li:hover { background: #dcfce7; }
+        .log { font-style: italic; color: #64748b; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>JavaScript Technical Guide</h1>
+
+    <div class="card">
+        <h2>1. Promises and Async/Await</h2>
+        <p>A <strong>Promise</strong> represents a value that may be available now, in the future, or never. It handles asynchronous operations like API calls.</p>
+        
+        
+        <h3>How Async/Await Simplifies Code</h3>
+        <p>While Promises use <code>.then()</code> chains, <code>async/await</code> allows us to write asynchronous code that looks like standard synchronous code, making it much easier to read and maintain.</p>
+        
+<pre>
+// Using async/await for cleaner logic
+async function getUserData() {
+    try {
+        const response = await fetch('https://api.example.com/user');
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error("Error fetching data", error);
+    }
+}
+</pre>
+    </div>
+
+    <div class="card">
+        <h2>2. Event Delegation & addEventListener</h2>
+        <p><code>addEventListener()</code> attaches an event handler to a specific element. However, attaching 100 listeners to 100 buttons is bad for performance.</p>
+        
+        <h3>Event Delegation</h3>
+        <p>Instead of adding listeners to every child, we add <strong>one</strong> listener to the <strong>parent</strong>. Because of "Event Bubbling," clicks on children rise up to the parent.</p>
+        
+        
+        <div class="list-container">
+            <strong>Interactive Example:</strong>
+            <p>One listener is on the <code>&lt;ul&gt;</code>, not the items!</p>
+            <ul id="parent-list">
+                <li>Item 1 (Click me)</li>
+                <li>Item 2 (Click me)</li>
+                <li>Item 3 (Click me)</li>
+            </ul>
+            <div id="click-log" class="log">Click an item above...</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const parentList = document.getElementById('parent-list');
+    const log = document.getElementById('click-log');
+
+    parentList.addEventListener('click', (event) => {
+        if (event.target.tagName === 'LI') {
+            log.innerText = `You clicked: ${event.target.innerText} (Detected via parent!)`;
+            log.style.color = '#16a34a';
+        }
+    });
+</script>
+
+</body>
+</html>

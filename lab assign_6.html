@@ -1,0 +1,87 @@
+<!DOCTYPE html><html><head>
+<title>Creative Responsive Layout</title><style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f3f4f6;}
+header {
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 25px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;}
+.container {
+    display: flex;
+    padding: 20px;}
+.sidebar {
+    width: 260px;
+    background: #ffffff;
+    float: left;
+    padding: 20px;
+  border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);}
+.sidebar h3 {
+    margin-bottom: 15px;}
+.sidebar a {
+    display: block;
+    padding: 10px;
+    background: #e3f2fd;
+    margin: 8px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #0d47a1;
+    transition: .3s;}
+.sidebar a:hover {
+    background: #bbdefb;}
+.content {
+    flex: 1;
+    margin-left: 20px;
+    float: right;}
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: .3s;}
+.card:hover {
+    transform: translateY(-5px);}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;}
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;}
+    .sidebar, .content {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 20px;}}
+@media (min-width: 600px) and (max-width: 900px) {
+    .sidebar {
+        width: 180px;}}
+@media (min-width: 900px) {
+    .sidebar {
+        width: 260px;}}
+</style></head><body>
+<header>✨ Creative Responsive Webpage Layout ✨</header>
+<div class="container clearfix">
+    <div class="sidebar">
+        <h3>Navigation</h3>
+        <a href="#">🏠 Dashboard</a>
+        <a href="#">📁 Projects</a>
+        <a href="#">📩 Messages</a>
+        <a href="#">⚙ Settings</a></div>
+    <div class="content">
+        <div class="card">
+            <h2>Welcome</h2>
+            <p>This is a fully responsive modern layout created using flexbox, floats, and media queries.</p></div>
+        <div class="card">
+            <h2>Latest Updates</h2>
+            <p>Resize the screen to see how the layout automatically adapts.</p></div>
+        <div class="card">
+            <h2>About</h2>
+<p>Perfect for assignments and real website layouts!</p>
+        </div></div></div></body>
+</html>

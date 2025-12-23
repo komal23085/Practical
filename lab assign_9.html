@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding the DOM</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f4f9; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h1, h2 { color: #2c3e50; }
+        .demo-box { border: 2px dashed #3498db; padding: 15px; margin: 20px 0; background: #ebf5fb; }
+        button { background: #3498db; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 4px; }
+        button:hover { background: #2980b9; }
+        code { background: #eee; padding: 2px 4px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>3. Document Object Model (DOM)</h1>
+    <p>
+        The <strong>DOM</strong> is a programming interface for web documents. It represents the page so that programs (like JavaScript) can change the document structure, style, and content. The DOM represents the document as a <strong>tree of objects</strong>.
+    </p>
+
+    
+    <h2>Selecting & Modifying Elements</h2>
+    <p>You can select elements using methods like <code>document.getElementById()</code> or <code>document.querySelector()</code>.</p>
+
+    <div id="target-element" class="demo-box">
+        This is the original text in the box.
+    </div>
+
+    <button onclick="modifyWithText()">Change with innerText</button>
+    <button onclick="modifyWithHTML()">Change with innerHTML</button>
+
+    <hr>
+
+    <h3>Key Differences:</h3>
+    <ul>
+        <li><strong>innerText:</strong> Returns or sets the <strong>plain text</strong>. It ignores HTML tags and treats them as literal text.</li>
+        <li><strong>innerHTML:</strong> Returns or sets the <strong>HTML markup</strong>. It allows you to inject new HTML elements (like buttons or bold text) into the page.</li>
+    </ul>
+</div>
+
+<script>
+    // 1. SELECTING THE ELEMENT
+    // We use getElementById to find the div with the ID 'target-element'
+    const myBox = document.getElementById('target-element');
+
+    // 2. MODIFYING CONTENT
+    function modifyWithText() {
+        // innerText treats the string as raw text
+        myBox.innerText = "<strong>Notice:</strong> The tags are visible as text!";
+    }
+
+    function modifyWithHTML() {
+        // innerHTML parses the string as actual HTML
+        myBox.innerHTML = "<strong style='color: red;'>Success:</strong> The HTML was rendered properly!";
+    }
+</script>
+
+</body>
+</html>

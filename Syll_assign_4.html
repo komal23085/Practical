@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FORM </title>
+    </head>
+    <body>
+        <legend><blockquote>FORM FILL UP</blockquote></legend>
+        <form action="/submit" autocomplete="on" target="_blank">
+           <fieldset>
+            <label for="fname">First Name: </label>
+            <input type="text"  id="fname"   placeholder="Enter first name">
+            <label for="name">Last Name: </label>
+            <input type="text" id="lname" placeholder="Enter last name"><br>   
+            <label for="email">Email ID: </label>
+            <input type="email"  placeholder="Enter email"><br>
+            <label for="fathername">Father Name</label>
+            <input type="text" id="fathername" placeholder="Enter father name">
+            <label for="mothername">Mother Name</label>
+            <input type="text" id="mothername" placeholder="Enter mother name"><br>
+            <h4><u>Gender</u></h4>
+            <input type="radio" id="Female" name="gender" value="Female" ><label for="Female">Female</label><br>
+            <input type="radio" id="male" name="gender" value="Male" ><label for="male">Male</label><br>
+            <h4><u>Hobbies</u></h4>
+             <input type="checkbox" id="Reading"  name="hobby">
+            <label for="Reading">Reading</label>
+            <input type="checkbox" id="Gaming"  name="hobby">
+            <label for="Gaming">Gaming</label>
+            <input type="checkbox" id="coding"  name="hobby">
+            <label for="coding">Coding</label><br>
+            <h3>Course</h3>
+            <select id="course" name="course">
+                <label for="course" >select your course</label>
+                <option value="Btech">Btech</option>
+                  <option value="Bsc">Bsc</option>
+                  <option value="Mtech">Mtech</option>
+                  <option value="Msc">Msc</option>
+                    <option value="Mca">Mca</option>
+                  <option value="Bca">Bca</option></select>
+             <h3>Choose Color</h3>
+            <select id="colour" name="colour">
+                <label for="colour">select your favourite colour</label>
+                <option value="red">RED</option>
+                <option value="pink">PINK</option>
+                <option value="Blue">BLUE</option>
+                <option value="Brown">BROWN</option>
+                <option value="Black">Black</option>
+                <option value="Green">GREEN</option></select><br><br>
+                  Upload
+                   <input type="file" value="file">
+                   <input type="submit" value="submit">
+                    <input type="Reset" value="reset"></fieldset>
+                </form>
+        </body>
+</html>

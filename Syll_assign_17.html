@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  #box {
+    width: 200px; height: 200px;
+    background: lightblue;
+    margin: 50px;
+    text-align: center;
+    line-height: 200px;
+    font-size: 24px;
+    transition: all 0.3s;
+    user-select: none;
+  }
+  .big { transform: scale(1.3); }
+  .red { background: red; color: white; }
+  .rotate { transform: rotate(45deg); }
+</style>
+</head>
+<body>
+
+<div id="box">Interact with me!</div>
+<p>Status: <span id="status">Ready</span></p>
+
+<script>
+const box = document.getElementById('box');
+const status = document.querySelector('#status');
+
+// Mouse events
+box.addEventListener('click', () => {
+  box.classList.toggle('red');
+  status.innerHTML = 'Clicked!';
+});
+
+box.addEventListener('dblclick', () => {
+  box.classList.toggle('big');
+  status.innerHTML = 'Double-clicked!';
+});
+
+box.addEventListener('mouseenter', () => {
+  box.classList.add('rotate');
+  status.innerHTML = 'Mouse entered';
+});
+
+box.addEventListener('mouseleave', () => {
+  box.classList.remove('rotate');
+  status.innerHTML = 'Mouse left';
+});
+
+// Keyboard events (when box is focused)
+box.tabIndex = 0; // Make div focusable
+
+box.addEventListener('keydown', (e) => {
+  if (e.key === 'r') box.classList.toggle('red');
+  if (e.key === 'b') box.classList.toggle('big');
+  if (e.key === ' ') {
+    e.preventDefault();
+    box.classList.toggle('rotate');
+  }
+  status.innerHTML = `Key pressed: ${e.key}`;
+});
+
+box.focus(); // Auto-focus on load
+</script>
+
+</body>
+</html>

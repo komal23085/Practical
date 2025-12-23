@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Array Methods Explanation</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 20px auto; padding: 20px; background-color: #f4f4f9; }
+        h1 { color: #333; border-bottom: 2px solid #333; }
+        .method-card { background: white; padding: 15px; margin-bottom: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        code { background: #eee; padding: 2px 5px; border-radius: 4px; font-family: monospace; color: #d63384; }
+        .demo-box { background: #282c34; color: #61dafb; padding: 20px; border-radius: 8px; margin-top: 20px; text-align: center; }
+        .controls { margin-top: 15px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        button { padding: 10px 15px; cursor: pointer; border: none; border-radius: 5px; background: #007bff; color: white; font-weight: bold; }
+        button:hover { background: #0056b3; }
+        .array-display { font-size: 1.5rem; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Array Methods</h1>
+    <p>In JavaScript, arrays are used to store multiple values in a single variable. Here are four fundamental methods used to add or remove elements:</p>
+
+    
+    <div class="method-card">
+        <h3>1. <code>push()</code></h3>
+        <p>Adds one or more elements to the <strong>end</strong> of an array and returns the new length.</p>
+    </div>
+
+    <div class="method-card">
+        <h3>2. <code>pop()</code></h3>
+        <p>Removes the <strong>last</strong> element from an array and returns that element.</p>
+    </div>
+
+    <div class="method-card">
+        <h3>3. <code>shift()</code></h3>
+        <p>Removes the <strong>first</strong> element from an array and returns that element. This shifts all subsequent elements to a lower index.</p>
+    </div>
+
+    <div class="method-card">
+        <h3>4. <code>unshift()</code></h3>
+        <p>Adds one or more elements to the <strong>beginning</strong> of an array and returns the new length.</p>
+    </div>
+
+    <hr>
+
+    <h2>Live Demonstration</h2>
+    <div class="demo-box">
+        <p>Current Array:</p>
+        <div id="array-display" class="array-display">["Apple", "Banana"]</div>
+        
+        <div class="controls">
+            <button onclick="handlePush()">push("Orange")</button>
+            <button onclick="handlePop()">pop()</button>
+            <button onclick="handleShift()">shift()</button>
+            <button onclick="handleUnshift()">unshift("Mango")</button>
+        </div>
+    </div>
+
+    <script>
+        let fruits = ["Apple", "Banana"];
+        const display = document.getElementById('array-display');
+
+        function updateDisplay() {
+            display.innerText = JSON.stringify(fruits);
+        }
+
+        function handlePush() {
+            fruits.push("Orange");
+            updateDisplay();
+        }
+
+        function handlePop() {
+            fruits.pop();
+            updateDisplay();
+        }
+
+        function handleShift() {
+            fruits.shift();
+            updateDisplay();
+        }
+
+        function handleUnshift() {
+            fruits.unshift("Mango");
+            updateDisplay();
+        }
+    </script>
+
+</body>
+</html>

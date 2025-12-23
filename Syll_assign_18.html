@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Demo</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+        .controls { margin-bottom: 20px; }
+        button { margin-right: 5px; padding: 8px 12px; cursor: pointer; }
+        #item-list { background: #f4f4f4; padding: 20px; border-radius: 8px; width: 300px; }
+        li { margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+    <h2>JavaScript DOM Operations</h2>
+    <p>Use the buttons below to interact with the list child nodes.</p>
+
+    <div class="controls">
+        <button onclick="addElement()">Append Item</button>
+        <button onclick="modifyElement()">Modify First</button>
+        <button onclick="removeElement()">Remove Last</button>
+    </div>
+
+    <ul id="item-list">
+        <li>Original Item 1</li>
+    </ul>
+
+    
+
+    <script>
+        function addElement() {
+            const list = document.getElementById("item-list");
+        
+            const newEntry = document.createElement("li");
+         
+            newEntry.textContent = "New Item " + (list.children.length + 1);
+         
+            list.appendChild(newEntry);
+        }
+
+        function modifyElement() {
+            const list = document.getElementById("item-list");
+            
+            if (list.children.length > 0) {
+                const firstItem = list.children[0];
+                firstItem.textContent = "Updated & Modified!";
+                firstItem.style.color = "crimson";
+                firstItem.style.fontWeight = "bold";
+            } else {
+                alert("No items left to modify!");
+            }
+        }
+        function removeElement() {
+            const list = document.getElementById("item-list");
+            
+            if (list.hasChildNodes()) {
+               
+                list.removeChild(list.lastChild);
+            } else {
+                alert("The list is already empty.");
+            }
+        }
+    </script>
+
+</body>
+</html>

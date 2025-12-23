@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Promises & Async/Await</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 40px; background-color: #f0f2f5; }
+        .container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #2980b9; margin-top: 30px; }
+        .concept-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        .card { background: #f8f9fa; border-left: 5px solid #3498db; padding: 15px; border-radius: 4px; }
+        code { background: #2d2d2d; color: #f8f8f2; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', monospace; }
+        pre { background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 8px; overflow-x: auto; font-size: 0.9rem; }
+        .highlight { color: #f1c40f; font-weight: bold; }
+        .demo-section { margin-top: 40px; padding: 20px; border: 2px dashed #bdc3c7; border-radius: 10px; text-align: center; }
+        button { background: #27ae60; color: white; border: none; padding: 12px 24px; border-radius: 5px; cursor: pointer; font-size: 1rem; transition: 0.3s; }
+        button:hover { background: #219150; }
+        #status { margin-top: 15px; font-weight: bold; min-height: 24px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Understanding Asynchronous JavaScript</h1>
+
+    <section>
+        <h2>What are Promises?</h2>
+        <p>A <strong>Promise</strong> is an object representing the eventual completion (or failure) of an asynchronous operation and its resulting value. Think of it as a placeholder for a future result.</p>
+        
+        
+        <div class="concept-grid">
+            <div class="card">
+                <strong>Three States:</strong>
+                <ul>
+                    <li><strong>Pending:</strong> Initial state, neither fulfilled nor rejected.</li>
+                    <li><strong>Fulfilled:</strong> The operation completed successfully.</li>
+                    <li><strong>Rejected:</strong> The operation failed.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <strong>Why they exist:</strong>
+                <p>Promises were created to solve "Callback Hell"—the nested, unreadable code that occurred when multiple async tasks depended on each other.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>How Async/Await Simplifies Code</h2>
+        <p>Introduced in ES2017, <code>async</code> and <code>await</code> are built on top of promises. They allow you to write asynchronous code that <strong>looks and behaves like synchronous code</strong>.</p>
+        
+        <table style="width:100%; border-collapse: collapse; margin-top: 15px;">
+            <tr>
+                <th style="text-align:left; padding: 10px; background: #eee;">Using Promises (.then)</th>
+                <th style="text-align:left; padding: 10px; background: #eee;">Using Async/Await</th>
+            </tr>
+            <tr>
+                <td style="vertical-align: top; padding-right: 10px;">
+<pre>fetchData()
+  .then(data => {
+    return processData(data);
+  })
+  .then(result => {
+    console.log(result);
+  })
+  .catch(err => console.error(err));</pre>
+                </td>
+                <td style="vertical-align: top;">
+<pre>async function run() {
+  try {
+    const data = await fetchData();
+    const result = await processData(data);
+    console.log(result);
+  } catch (err) {
+    console.error(err);
+  }
+}</pre>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="demo-section">
+        <h2>Live Demo: Async Logic</h2>
+        <p>Click the button to simulate a 2-second data fetch using <code>async/await</code>.</p>
+        <button onclick="fetchDataSim()">Fetch User Data</button>
+        <div id="status">Ready...</div>
+    </section>
+</div>
+
+<script>
+    // A mock function that returns a promise
+    function mockApiCall() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve({ id: 1, name: "John Doe", status: "Verified" });
+            }, 2000);
+        });
+    }
+
+    async function fetchDataSim() {
+        const statusDiv = document.getElementById('status');
+        
+        statusDiv.innerHTML = '<span style="color: #e67e22;">⏳ Fetching from server...</span>';
+        
+        try {
+        
+            const user = await mockApiCall();
+            
+            statusDiv.innerHTML = `
+                <span style="color: #27ae60;">✅ Success! User: ${user.name} (ID: ${user.id})</span>
+            `;
+        } catch (error) {
+            statusDiv.innerHTML = '<span style="color: #e74c3c;">❌ Error loading data</span>';
+        }
+    }
+</script>
+
+</body>
+</html>
