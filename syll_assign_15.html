@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Manipulation Demo</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+        .container { border: 2px solid #333; padding: 15px; border-radius: 8px; }
+        .highlight { color: darkblue; font-weight: bold; }
+        button { margin-top: 10px; cursor: pointer; padding: 8px 16px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 id="main-title">Original Title</h2>
+
+        <p class="description">This text will be replaced.</p>
+
+        <button onclick="manipulateDOM()">Click to Change Content</button>
+    </div>
+
+    <script>
+        function manipulateDOM() {
+            
+            const titleElement = document.getElementById('main-title');
+
+            const textElement = document.querySelector('.description');
+
+            titleElement.innerHTML = "<em>The DOM has been updated!</em>";
+            
+            textElement.innerHTML = "Successfully manipulated using <span class='highlight'>querySelector</span> and <span class='highlight'>innerHTML</span>.";
+        }
+    </script>
+
+</body>
+</html>

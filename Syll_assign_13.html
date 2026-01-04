@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Functions and Scope</title>
+</head>
+<body>
+<h2>User-Defined Functions & var/let/const Demo</h2>
+<p>Check Console Output (Press F12)</p>
+<script>
+    function greet(name) {
+        console.log("Hello " + name);
+    }
+    greet("Komal");
+    var a = 10;
+    if (true) {
+        var a = 20;
+        console.log("Inside var block:", a);
+    }
+    console.log("Outside var block:", a);
+    let b = 10;
+    if (true) {
+        let b = 20;
+        console.log("Inside let block:", b);
+    }
+    console.log("Outside let block:", b);
+    const pi = 3.14;
+    console.log("Value of PI:", pi);
+
+</script>
+
+</body>
+</html>
