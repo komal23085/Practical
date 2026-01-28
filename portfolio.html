@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fancy Portfolio</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  background:#f6f7fb;
+  color:#111;
+  transition:0.3s;
+}
+
+body.dark{
+  background:#0b0f19;
+  color:#e0e4ff;
+}
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 30px;
+  background:#111;
+  color:white;
+  position:sticky;top:0;
+  z-index:10;
+}
+
+nav ul{
+  display:flex;
+  gap:25px;
+  list-style:none;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:15px;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:#00c3ff;
+  text-shadow:0 0 10px #00c3ff;
+}
+
+.toggle{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+#darkBtn{
+  padding:6px 15px;
+  border:none;
+  border-radius:6px;
+  background:#00c3ff;
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 0 10px #00c3ff;
+  transition:0.4s;
+}
+
+#darkBtn:hover{
+  transform:scale(1.05);
+}
+
+.hero{
+  text-align:center;
+  padding:100px 20px;
+  background:linear-gradient(135deg,#dbe9ff,#eef4ff,#c7deff);
+  animation:fadeIn 1.3s ease;
+}
+
+body.dark .hero{
+  background:linear-gradient(135deg,#0f1a2b,#101929,#0b1220);
+}
+
+.profile{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  overflow:hidden;
+  border:5px solid #00c3ff;
+  margin:auto;
+  box-shadow:0 0 15px #00c3ff;
+  animation:pop 0.7s ease;
+}
+
+.profile img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.hero h1{
+  margin-top:20px;
+  font-size:2.3rem;
+}
+
+.hero h1 span{
+  color:#007bff;
+}
+
+body.dark .hero h1 span{
+  color:#00c3ff;
+}
+
+.hero p{
+  font-size:1.1rem;
+  color:#444;
+}
+
+body.dark .hero p{
+  color:#e0e4ff;
+}
+
+section{
+  text-align:center;
+  padding:60px 20px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.skills-box span{
+  display:inline-block;
+  background:#fff;
+  color:#111;
+  padding:10px 18px;
+  margin:6px;
+  border-radius:6px;
+  box-shadow:0 0 10px #ccc;
+  transition:0.4s;
+}
+
+body.dark .skills-box span{
+  background:#141f36;
+  color:#e0e4ff;
+  box-shadow:0 0 10px #000;
+}
+
+.skills-box span:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 12px #00c3ff;
+}
+
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 0 12px #ccc;
+  transition:0.4s;
+}
+
+body.dark .card{
+  background:#141f36;
+  box-shadow:0 0 12px #000;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 18px #00c3ff;
+}
+
+footer{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:15px;
+  margin-top:30px;
+}
+
+@media(max-width:768px){
+  nav ul{
+    display:none;
+    flex-direction:column;
+    background:#111;
+    width:100%;
+    padding:20px;
+    margin-top:10px;
+  }
+  nav ul.show{
+    display:flex;
+  }
+  .toggle{
+    display:block;
+  }
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+@keyframes pop{
+  from{transform:scale(0.5);}
+  to{transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo" style="font-weight:bold;">YourName</div>
+
+  <ul id="menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div style="display:flex;gap:10px;">
+    <button id="darkBtn">Dark</button>
+    <div class="toggle" onclick="toggleMenu()">☰</div>
+  </div>
+</nav>
+
+<section id="home" class="hero">
+  <div class="profile">
+    
+    <img src="my img.jpeg" alt="Profile">
+  </div>
+
+  <h1>Hello, I'm <span>Komal Singh</span></h1>
+  <p>RISU Student | Aspiring Full Stack Developer</p>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>I'm a <b>B.Tech CSE student at RISU</b> (Year 1) focused on mastering the core of Computer Science. 
+        I enjoy bridging the gap between clean design and functional code using <b>HTML, CSS, and JS</b>.
+      </p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-box">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>React</span>
+    <span>Python</span>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="card">
+      <h3>Personal Portfolio</h3>
+      <p>This website! A responsive personal portfolio featuring Dark Mode, CSS animations,
+         and a mobile-friendly navigation system.</p>
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Persistent To-Do App</h3>
+      <p>A functional task manager that uses <b>LocalStorage</b> to save data.
+         Users can add and delete tasks that stay saved even after refreshing the page.</p>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: 81027komal@gmail.com</p>
+  <p>Phone: +91 7050198881</p>
+</section>
+
+<footer>© 2025 Komal Singh | All Rights Reserved</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("show");
+}
+
+document.getElementById("darkBtn").onclick = () => {
+  document.body.classList.toggle("dark");
+};
+</script>
+
+</body>
+</html>
